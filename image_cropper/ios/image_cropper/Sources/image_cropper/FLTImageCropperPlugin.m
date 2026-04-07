@@ -1,9 +1,10 @@
 #import "./include/image_cropper/FLTImageCropperPlugin.h"
-#import "TOCropViewController.h"
-#import <TOCropViewController/TOCropViewConstants.h>
+// #import "TOCropViewController.h"
+// #import <TOCropViewController/TOCropViewConstants.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <Photos/Photos.h>
 #import <UIKit/UIKit.h>
+@import TOCropViewController;
 
 @interface FLTImageCropperPlugin () <TOCropViewControllerDelegate>
 @end

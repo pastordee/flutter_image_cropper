@@ -1,3 +1,7 @@
+## 12.2.0
+
+- fix issue on iOS: `Lexical or Preprocessor Issue (Xcode): 'TOCropViewController/TOCropViewConstants.h' file not found`
+
 ## 12.1.1
 
 - fix issue of fixed (locked) aspect ratio on iOS
