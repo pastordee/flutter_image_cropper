@@ -15,7 +15,7 @@ A Flutter plugin for Android, iOS and Web supports cropping images. This plugin 
 This project aims to provide an ultimate and flexible image cropping experience. Made in [Yalantis](https://yalantis.com/?utm_source=github)
 
 <p align="center">
-	<img src="https://github.com/hnvn/flutter_image_cropper/blob/master/image_cropper/screenshots/cropper_android.gif?raw=true" width="200"  />
+  <img src="https://github.com/hnvn/flutter_image_cropper/blob/master/image_cropper/screenshots/cropper_android.gif?raw=true" width="200"  />
 </p>
 
 ### TOCropViewController - Tim Oliver
@@ -44,14 +44,14 @@ JavaScript image cropper.
 
 ````xml
 <activity
-    android:name="com.yalantis.ucrop.UCropActivity"
-    android:screenOrientation="portrait"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+  android:name="com.yalantis.ucrop.UCropActivity"
+  android:screenOrientation="portrait"
+  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 ````
 
 #### Note:
-From v1.2.0, you need to migrate your android project to v2 embedding ([detail](https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects))
-
+- From v1.2.0, you need to migrate your android project to v2 embedding ([detail](https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects))
+ 
 ### iOS
 - No configuration required
 
@@ -115,10 +115,11 @@ From v1.2.0, you need to migrate your android project to v2 embedding ([detail](
 **Image Cropper** provides a helper class called `AndroidUiSettings` that wraps all properties can be used to customize UI in **uCrop** library. 
 
 | Property                    | Description                                                                                                | Type                            |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------- |
+|-----------------------------|------------------------------------------------------------------------------------------------------------|---------------------------------|
 | `toolbarTitle`              | desired text for Toolbar title                                                                             | String                          |
 | `toolbarColor`              | desired color of the Toolbar                                                                               | Color                           |
-| `statusBarColor`            | desired color of status                                                                                    | Color                           |
+| `statusBarLight`            | set to true for light status bar (dark icons), false for dark status bar (light icons)                     | bool                            |
+| `navBarLight`               | set to true for light navigation bar (dark icons), false for dark navigation bar (light icons)             | bool                            |
 | `toolbarWidgetColor`        | desired color of Toolbar text and buttons (default is darker orange)                                       | Color                           |
 | `backgroundColor`           | desired background color that should be applied to the root view                                           | Color                           |
 | `activeControlsWidgetColor` | desired resolved color of the active and selected widget and progress wheel middle line (default is white) | Color                           |

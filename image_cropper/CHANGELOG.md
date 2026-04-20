@@ -1,3 +1,100 @@
+## 12.2.0
+
+- fix issue on iOS: `Lexical or Preprocessor Issue (Xcode): 'TOCropViewController/TOCropViewConstants.h' file not found`
+
+## 12.1.1
+
+- fix issue of fixed (locked) aspect ratio on iOS
+
+## 12.1.0
+ - fix issue of `TOCropViewController` on Swift Package
+
+## 12.0.0
+
+* iOS:
+ - upgrade `TOCropViewController` to v3.1.1 (new Liquid Glass UI)
+ - support `UISceneDelegate` [#608](https://github.com/hnvn/flutter_image_cropper/pull/608)
+
+* Android: fix Android release build compile error [#599](https://github.com/hnvn/flutter_image_cropper/pull/599)
+
+## 11.0.0
+
+* iOS: upgrade `TOCropViewController` to v2.8.0
+
+**BREAKING CHANGES**:
+
+ - iOS: upgrade development target to 12
+ - Flutter constraint to minimum of 3.28 (due to constraint of `image_cropper_platform_interface`)
+
+## 10.0.0+1
+
+* correct README document for Android (removed workaround note because uCrop now fully supports edge-to-edge feature)
+
+## 10.0.0
+
+* Android: upgrade `uCrop` 2.2.11, it fully supports edge-to-edge now
+* Android: `statusBarColor` is deprecated and no longer in use, introduce new properties `statusBarLight` and `navBarLight`
+
+**BREAKING CHANGES**:
+
+ - Android: `compileSdkVersion` is set to 36
+ - Android: if you previously followed the migration guide in v9.0.0 to work around the edge-to-edge issue, please revert those changes (remove file `values-v35/styles.xml`)
+
+## 9.1.0
+
+* Web: fix bug on Flutter WASM [#567](https://github.com/hnvn/flutter_image_cropper/pull/567)
+* Android: fix deprecated API [#546](https://github.com/hnvn/flutter_image_cropper/pull/546)
+
+## 9.0.0
+
+* iOS: add support for Swift Package Manager (PR [#555](https://github.com/hnvn/flutter_image_cropper/pull/555))
+* Android: refactored edge-to-edge workaround solution by removing related code from the plugin and integrating it directly into the app.
+
+***Migration guide***
+  - Add follwowing code to file `android/app/src/main/res/values/styles.xml`
+  ```xml
+  <resources>
+    ....
+    <style name="Ucrop.CropTheme" parent="Theme.AppCompat.Light.NoActionBar"/> <!--add this line-->
+  </resources>
+  ```
+  - Create new file `android/app/src/main/res/values-v35/styles.xml` and add the following code to it:
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+    <style name="Ucrop.CropTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+  </resources>
+  ```
+  - Modify the decleration of `UCropActivity` in your `AndroidManifest.xml` (if you have not modified it yet)
+  ```xml
+  <activity
+    android:name="com.yalantis.ucrop.UCropActivity"
+    android:screenOrientation="portrait"
+    android:theme="@style/Ucrop.CropTheme"/> <!--this line is updated-->
+  ```
+
+## 8.1.0
+
+* Android: workaround edge-to-adge issue on Android 15
+
+  ***Before***:
+  ```xml
+    <activity
+      android:name="com.yalantis.ucrop.UCropActivity"
+      android:screenOrientation="portrait"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+  ```
+
+  ***After***:
+  ```xml
+    <activity
+      android:name="com.yalantis.ucrop.UCropActivity"
+      android:screenOrientation="portrait"
+      android:theme="@style/Ucrop.CropTheme"/> <!-- This line is updated -->
+  ```
+
 ## 8.0.2
 
 * Android: fix deprecated API
@@ -49,7 +146,8 @@
 * refactor plugin to use new JS library, `cropperjs` instead of `croppie`
 * support Wasm
 * support customize `CropAspectRatioPreset`
-* **BREAKING CHANGES**:
+
+**BREAKING CHANGES**:
 
     - **WebUiSettings**: is totally re-implemented, please see plugin document for more details
     - **cropImage()**: move `cropStyle` and `aspectRatioPresets` into `AndroidUiSettings` and `IOUiSettings` for sake of clean and clarity.
@@ -210,7 +308,8 @@ WebUiSettings(
 ## 2.0.0
 
 * Support Web
-* **BREAKING CHANGE**:
+
+**BREAKING CHANGE**:
   - change result data type from `File` to `CroppedFile`.
   - remove `androidUiSettings` and `iosUiSettings` parameter in `cropImage` method, they are replaced by `uiSettings`
 
